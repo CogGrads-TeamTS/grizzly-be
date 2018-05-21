@@ -12,4 +12,4 @@
 - Work submitted with additional logic tests where needed
 - Update API documentation where needed
 - No external dependencies that violate any licenses
-- 500 line limit per pull request 
+- 500 line limit per pull request, or a good reason for exceeding the limit
