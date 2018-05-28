@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path="/categories")
+@CrossOrigin
 public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
@@ -24,8 +25,9 @@ public class CategoryController {
 
     @GetMapping
     public @ResponseBody Iterable<Category> getAllUsers() {
+        Iterable<Category> categories = categoryRepository.findAll();
         // This returns a JSON or XML with the users
-        return categoryRepository.findAll();
+        return categories;
     }
 
 }
