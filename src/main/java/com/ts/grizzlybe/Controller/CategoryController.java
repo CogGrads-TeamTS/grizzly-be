@@ -22,7 +22,7 @@ public class CategoryController {
         return "Category saved";
     }
 
-    @GetMapping(path="/")
+    @GetMapping
     public @ResponseBody Iterable<Category> getAllUsers() {
         // This returns a JSON or XML with the users
         return categoryRepository.findAll();
