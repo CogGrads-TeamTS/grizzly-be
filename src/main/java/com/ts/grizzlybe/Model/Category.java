@@ -1,9 +1,8 @@
 package com.ts.grizzlybe.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import javax.persistence.*;
 
 @Entity
 public class Category {
@@ -14,6 +13,14 @@ public class Category {
     private String name;
 
     private String description;
+
+    @Transient
+    @JsonInclude
+    private int count;
+
+    public int getCount() {
+        return 15; // FIXME Add method to calculate product
+    }
 
     public Integer getId() {
         return id;
