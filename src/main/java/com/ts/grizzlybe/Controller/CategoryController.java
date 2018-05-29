@@ -15,28 +15,28 @@ public class CategoryController {
     private CategoryRepository categoryRepository;
 
     @PostMapping(path="/add") // Map ONLY GET Requests
-    public String addNewCategory (@RequestParam String name, @RequestParam String description) {
+    public ResponseEntity addNewCategory (@RequestParam String name, @RequestParam String description) {
 
         Category category = new Category();
         category.setName(name);
         category.setDescription(description);
         categoryRepository.save(category);
 
-        return "Category saved";
+        return new ResponseEntity<>("Category saved", HttpStatus.CREATED);
     }
 
     @GetMapping
-    public @ResponseBody Iterable<Category> getAllUsers() {
+    public @ResponseBody ResponseEntity<Iterable<Category>> getAllUsers() {
         Iterable<Category> categories = categoryRepository.findAll();
         // This returns a JSON or XML with the users
-        return categories;
+        return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity deleteCategory(@PathVariable long id) {
         categoryRepository.deleteById(id);
 
-        return new ResponseEntity<>("Deleted user@{" + id + "} successfully", HttpStatus.ACCEPTED);
+        return new ResponseEntity<>("Deleted user@{" + id + "} successfully", HttpStatus.OK);
     }
 
 }
