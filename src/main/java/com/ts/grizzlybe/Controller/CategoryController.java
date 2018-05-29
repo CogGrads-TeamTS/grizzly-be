@@ -3,6 +3,8 @@ package com.ts.grizzlybe.Controller;
 import com.ts.grizzlybe.Model.Category;
 import com.ts.grizzlybe.Repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -31,8 +33,10 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCategory(@PathVariable long id) {
+    public ResponseEntity deleteCategory(@PathVariable long id) {
         categoryRepository.deleteById(id);
+
+        return new ResponseEntity<>("Deleted user@{" + id + "} successfully", HttpStatus.ACCEPTED);
     }
 
 }
