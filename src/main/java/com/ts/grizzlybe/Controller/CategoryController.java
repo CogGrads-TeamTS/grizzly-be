@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping(path="/categories")
 @CrossOrigin
@@ -38,6 +40,35 @@ public class CategoryController {
         Iterable<Category> categories = categoryRepository.findAll();
         // This returns a JSON or XML with the users
         return new ResponseEntity<>(categories, HttpStatus.OK);
+    }
+
+    @GetMapping("/load/{id}")
+    public @ResponseBody ResponseEntity getCategory(@PathVariable long id)
+    {
+        Optional<Category> category =  categoryRepository.findById(id);
+        if (category == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        else
+        {
+            return new ResponseEntity<>(category,HttpStatus.OK);
+        }
+
+    }
+
+    @PutMapping("/edit/{id}")
+    public ResponseEntity editCategory(@PathVariable long id ,@RequestBody Category category )
+    {
+        Optional<Category> categoryOptional = categoryRepository.findById(id);
+        if (!categoryOptional.isPresent())
+            return ResponseEntity.notFound().build();
+
+        category.setId(id);
+
+        categoryRepository.save(category);
+
+       // return ResponseEntity.noContent().build();
+        return new ResponseEntity<>("Category @{" + id + "} updated successfully", HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
