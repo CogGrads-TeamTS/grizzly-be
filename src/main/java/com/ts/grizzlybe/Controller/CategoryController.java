@@ -14,6 +14,14 @@ public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @PostMapping(path="/add", headers = "Content-Type=application/json") // Map ONLY GET Requests
+    public ResponseEntity addNewCategory (@RequestBody Category category) {
+
+        categoryRepository.save(category);
+
+        return new ResponseEntity<>("Category saved", HttpStatus.CREATED);
+    }
+
     @PostMapping(path="/add") // Map ONLY GET Requests
     public ResponseEntity addNewCategory (@RequestParam String name, @RequestParam String description) {
 
