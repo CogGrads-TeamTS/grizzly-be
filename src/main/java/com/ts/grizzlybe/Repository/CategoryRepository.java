@@ -12,16 +12,16 @@ import java.util.List;
 public interface CategoryRepository extends CrudRepository<Category, Long>,PagingAndSortingRepository<Category, Long> {
 
     //String sql = "select * from Category";
-    @Query("select id,name,description from Category order by name asc")
+    @Query("select c from Category c order by c.name asc")
     List<Category> sortByA_Z(String A_Z);
 
-    @Query("select  id,name,description from Category order by name desc")
+    @Query("select  c from Category c order by c.name desc")
     List<Category> sortByZ_A(String Z_A);
 
-    @Query("select id,name,description from Category order by id asc")
+    @Query("select c from Category c order by c.id asc")
     List<Category> sortByIdAsc(String IdAsc);
 
-    @Query("select id,name,description from Category order by id desc")
+    @Query("select c from Category c order by c.id desc")
     List<Category> sortByIdDesc(String IdDesc);
 }
 
