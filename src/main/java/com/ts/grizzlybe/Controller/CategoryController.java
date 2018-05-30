@@ -5,7 +5,9 @@ import com.ts.grizzlybe.Repository.CategoryRepository;
 import com.ts.grizzlybe.Service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,12 +24,9 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-//    @Autowired
-//    public void PersonController( CategoryService categoryService ){
-//        this.categoryService = categoryService;
-//    }
 
-    @GetMapping(value="/page")
+//    Method for paginating categories
+    @GetMapping(value="/page") // Link method to /page endpoint
     Page<Category> listPaginatedCategories(Pageable pageable){
 
         Page<Category> categoryPage = categoryService.listAllByPage(pageable);
@@ -39,7 +38,7 @@ public class CategoryController {
 
         categoryRepository.save(category);
 
-        return new ResponseEntity<>("Category saved", HttpStatus.CREATED);
+        return new ResponseEntity<>(category, HttpStatus.CREATED);
     }
 
     @PostMapping(path="/add") // Map ONLY GET Requests
@@ -50,7 +49,7 @@ public class CategoryController {
         category.setDescription(description);
         categoryRepository.save(category);
 
-        return new ResponseEntity<>("Category saved", HttpStatus.CREATED);
+        return new ResponseEntity<>(category, HttpStatus.CREATED);
     }
 
 
