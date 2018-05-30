@@ -2,7 +2,10 @@ package com.ts.grizzlybe.Controller;
 
 import com.ts.grizzlybe.Model.Category;
 import com.ts.grizzlybe.Repository.CategoryRepository;
+import com.ts.grizzlybe.Service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,21 @@ import java.util.Optional;
 public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private CategoryService categoryService;
+
+//    @Autowired
+//    public void PersonController( CategoryService categoryService ){
+//        this.categoryService = categoryService;
+//    }
+
+    @GetMapping(value="/page")
+    Page<Category> listPaginatedCategories(Pageable pageable){
+
+        Page<Category> categoryPage = categoryService.listAllByPage(pageable);
+        return categoryPage;
+    }
 
     @PostMapping(path="/add", headers = "Content-Type=application/json") // Map ONLY GET Requests
     public ResponseEntity addNewCategory (@RequestBody Category category) {
