@@ -22,8 +22,12 @@ public class CategoryServiceImpl implements CategoryService{
 //        this.categoryRepository = categoryRepository;
 //    }
 
-    @Override // Annotation not required but is good for readability. Not 100% necessary now that IDE's have linters
-    public Page<Category> listAllByPage(Pageable pageable) {
-       return  categoryRepository.findAll(pageable);
+//    @Override // Annotation not required but is good for readability. Not 100% necessary now that IDE's have linters
+//    public Page<Category> listAllByPage(Pageable pageable) {
+//       return  categoryRepository.findAll(pageable);
+//    }
+
+    public  Page<Category> findBySearchTerm(String searchTerm, Pageable pageable){
+       return categoryRepository.findBySearchTerm(searchTerm, pageable);
     }
 }
