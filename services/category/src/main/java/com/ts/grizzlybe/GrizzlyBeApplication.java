@@ -9,7 +9,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan
 @EnableDiscoveryClient
-@EnableFeignClients
 @EnableSwagger2
 public class GrizzlyBeApplication {
 

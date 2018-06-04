@@ -1,6 +1,7 @@
 package com.ts.grizzlybe.Repository;
 
 import com.ts.grizzlybe.Model.Category;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
