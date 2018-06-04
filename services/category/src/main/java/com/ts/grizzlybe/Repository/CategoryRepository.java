@@ -13,7 +13,7 @@ import java.util.List;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete
-public interface CategoryRepository extends CrudRepository<Category, Long>, PagingAndSortingRepository<Category, Long> {
+public interface CategoryRepository extends CrudRepository<Category, Long>,PagingAndSortingRepository<Category, Long> {
 
 
 
@@ -37,4 +37,3 @@ public interface CategoryRepository extends CrudRepository<Category, Long>, Pagi
     List<Category> sortByIdDesc(String IdDesc); */
 
 }
-
