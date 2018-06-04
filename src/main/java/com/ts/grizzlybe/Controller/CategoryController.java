@@ -5,13 +5,12 @@ import com.ts.grizzlybe.Repository.CategoryRepository;
 import com.ts.grizzlybe.Service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -25,11 +24,20 @@ public class CategoryController {
     private CategoryService categoryService;
 
 
-//    Method for paginating categories
-    @GetMapping(value="/page") // Link method to /page endpoint
-    Page<Category> listPaginatedCategories(Pageable pageable){
 
-        Page<Category> categoryPage = categoryService.listAllByPage(pageable);
+//    Method for paginating categories
+//    @GetMapping(value="/page") // Link method to /page endpoint
+//    Page<Category> listPaginatedCategories(Pageable pageable){
+//
+//        Page<Category> categoryPage = categoryService.listAllByPage(pageable);
+//        return categoryPage;
+//    }
+
+    @GetMapping(value = "/page")
+    public Page<Category> findBySearchTerm(@RequestParam("search") String searchTerm, Pageable pageable) {
+
+        Page <Category> categoryPage = categoryService.findBySearchTerm(searchTerm, pageable);
+
         return categoryPage;
     }
 
@@ -62,7 +70,7 @@ public class CategoryController {
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
-    @GetMapping("/sort")
+   /* @GetMapping("/sort")
     public @ResponseBody ResponseEntity<Iterable<Category>> getAllUsersSort(@RequestParam String name ) {
         if(name.equals("A_Z") ) {
             Iterable<Category> categories = categoryRepository.sortByA_Z(name);
@@ -88,7 +96,7 @@ public class CategoryController {
         }
         // This returns a JSON or XML with the users
 
-    }
+    } */
 
     @GetMapping("/load/{id}")
     public @ResponseBody ResponseEntity getCategory(@PathVariable long id)
