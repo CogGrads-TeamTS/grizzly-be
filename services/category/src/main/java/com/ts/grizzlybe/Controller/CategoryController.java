@@ -68,27 +68,27 @@ public class CategoryController {
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
-    @GetMapping("/sort")
-    public @ResponseBody
-    ResponseEntity<Iterable<Category>> getAllUsersSort(@RequestParam String name) {
-        if (name.equals("A_Z")) {
-            Iterable<Category> categories = categoryRepository.sortByA_Z(name);
-            return new ResponseEntity<>(categories, HttpStatus.OK);
-        } else if (name.equals("Z_A")) {
-            Iterable<Category> categories = categoryRepository.sortByZ_A(name);
-            return new ResponseEntity<>(categories, HttpStatus.OK);
-        } else if (name.equals("IdAsc")) {
-            Iterable<Category> categories = categoryRepository.sortByIdAsc(name);
-            return new ResponseEntity<>(categories, HttpStatus.OK);
-        } else if (name.equals("IdDesc")) {
-            Iterable<Category> categories = categoryRepository.sortByIdDesc(name);
-            return new ResponseEntity<>(categories, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-        // This returns a JSON or XML with the users
-
-    }
+//    @GetMapping("/sort")
+//    public @ResponseBody
+//    ResponseEntity<Iterable<Category>> getAllUsersSort(@RequestParam String name) {
+//        if (name.equals("A_Z")) {
+//            Iterable<Category> categories = categoryRepository.sortByA_Z(name);
+//            return new ResponseEntity<>(categories, HttpStatus.OK);
+//        } else if (name.equals("Z_A")) {
+//            Iterable<Category> categories = categoryRepository.sortByZ_A(name);
+//            return new ResponseEntity<>(categories, HttpStatus.OK);
+//        } else if (name.equals("IdAsc")) {
+//            Iterable<Category> categories = categoryRepository.sortByIdAsc(name);
+//            return new ResponseEntity<>(categories, HttpStatus.OK);
+//        } else if (name.equals("IdDesc")) {
+//            Iterable<Category> categories = categoryRepository.sortByIdDesc(name);
+//            return new ResponseEntity<>(categories, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
+//        // This returns a JSON or XML with the users
+//
+//    }
 
     @GetMapping("/load/{id}")
     public @ResponseBody
