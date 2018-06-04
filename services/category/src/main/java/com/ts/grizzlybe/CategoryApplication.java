@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan
-public class GrizzlyBeApplication {
+public class CategoryApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GrizzlyBeApplication.class, args);
+        SpringApplication.run(CategoryApplication.class, args);
     }
 }

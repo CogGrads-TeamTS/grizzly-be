@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ts</groupId>
-    <artifactId>grizzly-be</artifactId>
+    <artifactId>category</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>grizzly-be</name>
+    <name>category</name>
     <description>Main Back End For Grizzle Site</description>
 
     <parent>
