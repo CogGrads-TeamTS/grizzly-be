@@ -4,6 +4,7 @@ import com.ts.grizzlybe.Model.Category;
 import com.ts.grizzlybe.Repository.CategoryRepository;
 import com.ts.grizzlybe.Service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

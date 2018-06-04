@@ -1,19 +1,15 @@
-package com.ts.grizzlybe;
+package gatewaydemo.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-
-@SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan
+@SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
-@EnableSwagger2
-public class GrizzlyBeApplication {
+public class DemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GrizzlyBeApplication.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 }
