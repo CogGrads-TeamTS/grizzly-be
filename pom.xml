@@ -13,6 +13,7 @@
 	</parent>
 
 	<modules>
+		<module>naming-demo</module>
 		<module>zuulgatewaydemo</module>
 	</modules>
 
