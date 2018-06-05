@@ -11,6 +11,7 @@
 	<modules>
 		<module>naming-demo</module>
 		<module>zuulgatewaydemo</module>
+		<module>category</module>
 	</modules>
 
 </project>
