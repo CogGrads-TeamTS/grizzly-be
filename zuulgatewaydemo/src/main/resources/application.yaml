@@ -9,8 +9,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://naming:8761/eureka/
-    registerWithEureka: false
+    registerWithEureka: true
     fetchRegistry: true
+  instance:
+    prefer-ip-address: true
 
 spring:
   application:
