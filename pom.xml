@@ -13,7 +13,7 @@
 	</parent>
 
 	<modules>
-		<module>gateway-service</module>
+		<module>zuulgatewaydemo</module>
 	</modules>
 
 </project>
