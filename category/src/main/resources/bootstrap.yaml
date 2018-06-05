@@ -2,4 +2,4 @@ spring:
   application:
     name: category-service
 server:
-  port: 8769
+  port: 3333

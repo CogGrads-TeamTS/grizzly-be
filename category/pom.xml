@@ -3,13 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ts</groupId>
-    <artifactId>grizzly-be</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-
-    <name>grizzly-be</name>
-    <description>Main Back End For Grizzle Site</description>
+    <artifactId>category-service</artifactId>
+    <name>category-service</name>
+    <description>Demo project for Spring Boot</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -109,6 +106,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>category-service</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
